@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue: #1e3a8a;
-  --color-brand-blue-light: #2563eb;
-  --color-brand-green: #10b981;
-  --color-brand-green-light: #34d399;
+  --color-brand-orange: #FF6B00;
+  --color-brand-orange-light: #FF8533;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-light: #FCD34D;
+  --color-brand-wood: #8B5A2B;
+  --color-brand-wood-dark: #5C3A21;
   --font-family-sans: 'Cairo', 'Segoe UI', sans-serif;
 }
 
