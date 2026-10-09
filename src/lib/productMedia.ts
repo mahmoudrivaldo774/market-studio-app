@@ -25,9 +25,20 @@ export function validateProductMedia(file: File, kind: 'image' | 'video'): strin
   return null
 }
 
+function generateUUID() {
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+    return crypto.randomUUID()
+  }
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    const r = Math.random() * 16 | 0
+    const v = c === 'x' ? r : (r & 0x3 | 0x8)
+    return v.toString(16)
+  })
+}
+
 export async function uploadProductMedia(file: File, folder: 'images' | 'videos') {
   const extension = file.name.split('.').pop()?.toLowerCase() || 'bin'
-  const path = `${folder}/${crypto.randomUUID()}.${extension}`
+  const path = `${folder}/${generateUUID()}.${extension}`
   const { error } = await supabase.storage.from(BUCKET).upload(path, file, {
     cacheControl: '3600',
     contentType: file.type,

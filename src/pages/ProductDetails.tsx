@@ -4,7 +4,7 @@ import { supabase } from '../lib/supabase'
 import { appRpc } from '../lib/appApi'
 import { Product } from '../types'
 import { useAuthStore } from '../store/authStore'
-import { formatPrice, calcDiscount } from '../lib/utils'
+import { formatPrice, calcDiscount, copyToClipboard } from '../lib/utils'
 import { Button } from '../components/ui/Button'
 import { LoadingSpinner } from '../components/LoadingSpinner'
 import { ArrowRight, Copy, Share2, Star, Edit, Download, Video, Trash2 } from 'lucide-react'
@@ -46,7 +46,8 @@ export const ProductDetails: React.FC = () => {
     if (!product) return
     const text = [product.name_ar, product.description || '', `السعر: ${product.sale_price || product.price} جنيه`].filter(Boolean).join('\n')
     try {
-      await navigator.clipboard.writeText(text)
+      const success = await copyToClipboard(text)
+      if (!success) throw new Error('Copy failed')
       toast.success('تم نسخ النص بنجاح ✓')
       const newCount = (product.copy_count || 0) + 1
       const now = new Date().toISOString()

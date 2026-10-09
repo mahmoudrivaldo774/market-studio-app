@@ -9,7 +9,7 @@ import { Search, Filter, LayoutGrid, List, ChevronDown } from 'lucide-react'
 import { Input } from '../components/ui/Input'
 import toast from 'react-hot-toast'
 import { motion, AnimatePresence } from 'framer-motion'
-import { cn } from '../lib/utils'
+import { cn, copyToClipboard } from '../lib/utils'
 
 const PAGE_SIZE = 20
 
@@ -29,6 +29,7 @@ export const Dashboard: React.FC = () => {
   const [hasMore, setHasMore] = useState(true)
   const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [showFilters, setShowFilters] = useState(false)
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const observerRef = useRef<IntersectionObserver | null>(null)
   const loadMoreRef = useRef<HTMLDivElement>(null)
 
@@ -145,7 +146,8 @@ export const Dashboard: React.FC = () => {
     ].filter(Boolean).join('\n')
 
     try {
-      await navigator.clipboard.writeText(text)
+      const success = await copyToClipboard(text)
+      if (!success) throw new Error('Copy failed')
       toast.success('تم نسخ النص بنجاح ✓')
 
       const newCount = (product.copy_count || 0) + 1
@@ -335,6 +337,7 @@ export const Dashboard: React.FC = () => {
                 onCopy={handleCopy}
                 onShare={handleShare}
                 onToggleFavorite={handleToggleFavorite}
+                onImageClick={setSelectedImage}
               />
             ))}
           </div>
@@ -348,6 +351,37 @@ export const Dashboard: React.FC = () => {
           </div>
         </>
       )}
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out"
+          >
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              src={selectedImage}
+              alt="Preview"
+              className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+            />
+            
+            {/* Close Button */}
+            <button 
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 bg-black/50 hover:bg-white/20 text-white p-3 rounded-full transition-colors touch-target"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
