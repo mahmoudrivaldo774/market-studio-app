@@ -38,7 +38,23 @@ export default defineConfig({
         display: 'standalone',
         dir: 'rtl',
         lang: 'ar',
+        id: 'market-studio',
         start_url: '/',
+        orientation: 'portrait',
+        screenshots: [
+          {
+            src: '/screenshot-mobile.png',
+            sizes: '1080x1920',
+            type: 'image/png',
+            form_factor: 'narrow'
+          },
+          {
+            src: '/screenshot-desktop.png',
+            sizes: '1920x1080',
+            type: 'image/png',
+            form_factor: 'wide'
+          }
+        ],
         icons: [
           {
             src: '/favicon.svg',
