@@ -30,10 +30,10 @@ export default defineConfig({
         ],
       },
       manifest: {
-        name: 'Market Studio',
+        name: 'Pick n\' Pack Studio',
         short_name: 'Studio',
         description: 'تطبيق إدارة استوديو المنتجات',
-        theme_color: '#1e3a8a',
+        theme_color: '#FF6B00',
         background_color: '#f9fafb',
         display: 'standalone',
         dir: 'rtl',

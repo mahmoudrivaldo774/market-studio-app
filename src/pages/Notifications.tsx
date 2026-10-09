@@ -79,7 +79,7 @@ export const Notifications: React.FC = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-            <Bell className="w-6 h-6 text-brand-blue" />
+            <Bell className="w-6 h-6 text-brand-orange" />
             الإشعارات
           </h1>
           <p className="text-sm text-gray-500 mt-1">
@@ -97,8 +97,8 @@ export const Notifications: React.FC = () => {
       {/* Notifications List */}
       {products.length === 0 ? (
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-12 flex flex-col items-center justify-center text-center">
-          <div className="w-20 h-20 bg-brand-green/10 rounded-2xl flex items-center justify-center mb-4">
-            <BellOff className="w-10 h-10 text-brand-green" />
+          <div className="w-20 h-20 bg-brand-gold/10 rounded-2xl flex items-center justify-center mb-4">
+            <BellOff className="w-10 h-10 text-brand-gold" />
           </div>
           <h2 className="text-xl font-bold text-gray-900 mb-2">لا توجد إشعارات حالياً 🎉</h2>
           <p className="text-gray-500 text-sm max-w-sm">

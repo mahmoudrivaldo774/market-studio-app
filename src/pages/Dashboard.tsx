@@ -234,7 +234,7 @@ export const Dashboard: React.FC = () => {
             onClick={() => setShowFilters(!showFilters)}
             className={cn(
               'flex items-center gap-1.5 px-4 rounded-lg border font-medium text-sm transition-all touch-target',
-              showFilters ? 'bg-brand-blue text-white border-brand-blue' : 'bg-white text-gray-600 border-gray-300 hover:border-brand-blue'
+              showFilters ? 'bg-brand-orange text-white border-brand-orange' : 'bg-white text-gray-600 border-gray-300 hover:border-brand-orange'
             )}
           >
             <Filter className="w-4 h-4" />
@@ -254,7 +254,7 @@ export const Dashboard: React.FC = () => {
               <div className="pt-3 border-t border-gray-100 space-y-3">
                 <div className="flex flex-wrap gap-3">
                   <select
-                    className="h-11 rounded-lg border border-gray-300 bg-white px-3 text-sm focus:ring-2 focus:ring-brand-blue outline-none touch-target"
+                    className="h-11 rounded-lg border border-gray-300 bg-white px-3 text-sm focus:ring-2 focus:ring-brand-orange outline-none touch-target"
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
                   >
@@ -265,7 +265,7 @@ export const Dashboard: React.FC = () => {
                   </select>
 
                   <select
-                    className="h-11 rounded-lg border border-gray-300 bg-white px-3 text-sm focus:ring-2 focus:ring-brand-blue outline-none touch-target"
+                    className="h-11 rounded-lg border border-gray-300 bg-white px-3 text-sm focus:ring-2 focus:ring-brand-orange outline-none touch-target"
                     value={sortBy}
                     onChange={(e: any) => setSortBy(e.target.value)}
                   >
@@ -278,11 +278,11 @@ export const Dashboard: React.FC = () => {
 
                 <div className="flex flex-wrap gap-4">
                   <label className="flex items-center gap-2 cursor-pointer text-sm font-medium">
-                    <input type="checkbox" checked={showFavoritesOnly} onChange={e => setShowFavoritesOnly(e.target.checked)} className="rounded text-brand-blue focus:ring-brand-blue w-4 h-4" />
+                    <input type="checkbox" checked={showFavoritesOnly} onChange={e => setShowFavoritesOnly(e.target.checked)} className="rounded text-brand-orange focus:ring-brand-orange w-4 h-4" />
                     المفضلة فقط ⭐
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer text-sm font-medium">
-                    <input type="checkbox" checked={hasVideoOnly} onChange={e => setHasVideoOnly(e.target.checked)} className="rounded text-brand-blue focus:ring-brand-blue w-4 h-4" />
+                    <input type="checkbox" checked={hasVideoOnly} onChange={e => setHasVideoOnly(e.target.checked)} className="rounded text-brand-orange focus:ring-brand-orange w-4 h-4" />
                     فيديو فقط 🎬
                   </label>
                 </div>
@@ -299,13 +299,13 @@ export const Dashboard: React.FC = () => {
           <div className="flex bg-gray-100 rounded-lg p-1">
             <button
               onClick={() => setViewMode('grid')}
-              className={cn('p-2 rounded-md transition-colors touch-target', viewMode === 'grid' ? 'bg-white shadow-sm text-brand-blue' : 'text-gray-400')}
+              className={cn('p-2 rounded-md transition-colors touch-target', viewMode === 'grid' ? 'bg-white shadow-sm text-brand-orange' : 'text-gray-400')}
             >
               <LayoutGrid className="w-4 h-4" />
             </button>
             <button
               onClick={() => setViewMode('list')}
-              className={cn('p-2 rounded-md transition-colors touch-target', viewMode === 'list' ? 'bg-white shadow-sm text-brand-blue' : 'text-gray-400')}
+              className={cn('p-2 rounded-md transition-colors touch-target', viewMode === 'list' ? 'bg-white shadow-sm text-brand-orange' : 'text-gray-400')}
             >
               <List className="w-4 h-4" />
             </button>

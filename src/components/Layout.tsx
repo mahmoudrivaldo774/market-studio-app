@@ -69,11 +69,11 @@ export const Layout: React.FC = () => {
     <>
       <div className="p-5 border-b border-gray-100">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-brand-blue rounded-xl flex items-center justify-center shadow-md">
+          <div className="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center shadow-md">
             <Store className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-brand-blue">Market Studio</h1>
+            <h1 className="text-lg font-bold text-brand-orange">Pick n' Pack Studio</h1>
             <p className="text-xs text-gray-400">استوديو المنتجات</p>
           </div>
         </div>
@@ -87,7 +87,7 @@ export const Layout: React.FC = () => {
             className={cn(
               'flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-medium touch-target',
               location.pathname === item.path
-                ? 'bg-brand-blue text-white shadow-md shadow-brand-blue/25'
+                ? 'bg-brand-orange text-white shadow-md shadow-brand-orange/25'
                 : 'text-gray-600 hover:bg-gray-100'
             )}
           >
@@ -98,7 +98,7 @@ export const Layout: React.FC = () => {
       </nav>
       <div className="p-4 border-t border-gray-100">
         <div className="flex items-center gap-3 mb-3 px-2">
-          <div className="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue font-bold text-lg">
+          <div className="w-10 h-10 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange font-bold text-lg">
             {user?.username.charAt(0).toUpperCase()}
           </div>
           <div className="flex-1 min-w-0">
@@ -165,7 +165,7 @@ export const Layout: React.FC = () => {
             >
               <Menu className="w-6 h-6 text-gray-700" />
             </button>
-            <h2 className="text-lg font-bold text-brand-blue lg:hidden">Market Studio</h2>
+            <h2 className="text-lg font-bold text-brand-orange lg:hidden">Pick n' Pack Studio</h2>
           </div>
           <div className="flex items-center gap-2">
             {/* Notifications Bell */}
@@ -231,7 +231,7 @@ export const Layout: React.FC = () => {
                               setShowNotifications(false)
                               navigate('/notifications')
                             }}
-                            className="w-full p-3 text-center text-sm font-semibold text-brand-blue hover:bg-brand-blue/5 transition-colors"
+                            className="w-full p-3 text-center text-sm font-semibold text-brand-orange hover:bg-brand-orange/5 transition-colors"
                           >
                             عرض كل الإشعارات ({uncopiedProducts.length})
                           </button>
@@ -243,7 +243,7 @@ export const Layout: React.FC = () => {
               </AnimatePresence>
             </div>
 
-            <div className="w-9 h-9 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue font-bold lg:hidden">
+            <div className="w-9 h-9 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange font-bold lg:hidden">
               {user?.username.charAt(0).toUpperCase()}
             </div>
           </div>

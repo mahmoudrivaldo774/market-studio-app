@@ -61,10 +61,10 @@ export const UsersManagement: React.FC = () => {
 
       {/* Tabs */}
       <div className="flex bg-gray-100 rounded-xl p-1 w-fit">
-        <button onClick={() => setActiveTab('users')} className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all touch-target ${activeTab === 'users' ? 'bg-white shadow-sm text-brand-blue' : 'text-gray-500'}`}>
+        <button onClick={() => setActiveTab('users')} className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all touch-target ${activeTab === 'users' ? 'bg-white shadow-sm text-brand-orange' : 'text-gray-500'}`}>
           <Users className="w-4 h-4 inline-block ml-1.5" />المستخدمين
         </button>
-        <button onClick={() => setActiveTab('logs')} className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all touch-target ${activeTab === 'logs' ? 'bg-white shadow-sm text-brand-blue' : 'text-gray-500'}`}>
+        <button onClick={() => setActiveTab('logs')} className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all touch-target ${activeTab === 'logs' ? 'bg-white shadow-sm text-brand-orange' : 'text-gray-500'}`}>
           <Activity className="w-4 h-4 inline-block ml-1.5" />سجل النشاط
         </button>
       </div>
@@ -91,7 +91,7 @@ export const UsersManagement: React.FC = () => {
                       </div>
                       <select
                         aria-label={`صلاحية ${u.username}`}
-                        className="h-10 rounded-lg border border-gray-300 bg-white px-3 text-sm outline-none focus:ring-2 focus:ring-brand-blue"
+                        className="h-10 rounded-lg border border-gray-300 bg-white px-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange"
                         value={u.role}
                         disabled={u.id === currentUser?.id}
                         onChange={event => void handleRoleChange(u.id, event.target.value as 'admin' | 'staff')}
@@ -124,7 +124,7 @@ export const UsersManagement: React.FC = () => {
                       <span className="text-gray-500 mx-1">—</span>
                       <span>{ACTION_LABELS[log.action]?.split(' ').slice(1).join(' ') || log.action}</span>
                       {(log as any).product?.name_ar && (
-                        <span className="text-brand-blue font-medium mr-1">"{(log as any).product.name_ar}"</span>
+                        <span className="text-brand-orange font-medium mr-1">"{(log as any).product.name_ar}"</span>
                       )}
                     </p>
                     <p className="text-xs text-gray-400 flex items-center gap-1 mt-0.5">

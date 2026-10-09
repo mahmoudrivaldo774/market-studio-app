@@ -8,10 +8,12 @@ export default {
     extend: {
       colors: {
         brand: {
-          blue: '#1e3a8a',
-          'blue-light': '#2563eb',
-          green: '#10b981',
-          'green-light': '#34d399',
+          orange: '#FF6B00',
+          'orange-light': '#FF8533',
+          gold: '#D4AF37',
+          'gold-light': '#FCD34D',
+          wood: '#8B5A2B',
+          'wood-dark': '#5C3A21',
         }
       },
       fontFamily: {

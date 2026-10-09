@@ -70,7 +70,7 @@ export const ResetPassword: React.FC = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4" dir="rtl">
       <div className="w-full max-w-sm bg-white border border-gray-200 rounded-2xl p-6 shadow-lg">
         <div className="text-center mb-6">
-          <div className="w-14 h-14 rounded-xl bg-brand-blue text-white flex items-center justify-center mx-auto mb-3">
+          <div className="w-14 h-14 rounded-xl bg-brand-orange text-white flex items-center justify-center mx-auto mb-3">
             <Store className="w-8 h-8" />
           </div>
           <h1 className="text-xl font-bold text-gray-900">تعيين كلمة مرور جديدة</h1>

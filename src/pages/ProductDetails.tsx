@@ -191,7 +191,7 @@ export const ProductDetails: React.FC = () => {
         <div className="space-y-4">
           <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
             <div className="mb-3">
-              <span className="text-sm font-medium text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full">
+              <span className="text-sm font-medium text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full">
                 {product.category?.icon} {product.category?.name_ar || 'بدون قسم'}
               </span>
             </div>
@@ -200,7 +200,7 @@ export const ProductDetails: React.FC = () => {
             {product.barcode && <p className="text-xs text-gray-400 font-mono mt-2">الباركود: {product.barcode}</p>}
 
             <div className="flex items-center gap-4 py-4 border-y border-gray-100 my-4">
-              <span className="text-3xl font-black text-brand-blue">{formatPrice(product.sale_price || product.price)}</span>
+              <span className="text-3xl font-black text-brand-orange">{formatPrice(product.sale_price || product.price)}</span>
               {product.sale_price && (
                 <div className="flex flex-col">
                   <span className="text-lg text-gray-400 line-through">{formatPrice(product.price)}</span>

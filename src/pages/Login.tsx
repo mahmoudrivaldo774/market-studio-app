@@ -160,7 +160,7 @@ export const Login: React.FC = () => {
           <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl border border-white/20">
             <Store className="w-12 h-12 text-white" />
           </div>
-          <h1 className="text-3xl font-black text-white">Market Studio</h1>
+          <h1 className="text-3xl font-black text-white">Pick n' Pack Studio</h1>
           <p className="text-white/70 mt-1 text-sm">نظام إدارة استوديو المنتجات</p>
         </div>
 
@@ -264,7 +264,7 @@ export const Login: React.FC = () => {
                 type="button"
                 disabled={isResettingPassword}
                 onClick={() => void handlePasswordReset()}
-                className="w-full text-sm font-semibold text-brand-blue hover:underline disabled:opacity-50"
+                className="w-full text-sm font-semibold text-brand-orange hover:underline disabled:opacity-50"
               >
                 {isResettingPassword ? 'جارٍ إرسال الرابط...' : 'نسيت كلمة المرور؟'}
               </button>
@@ -280,14 +280,14 @@ export const Login: React.FC = () => {
                 setPassword('')
                 setConfirmPassword('')
               }}
-              className="text-sm font-semibold text-brand-blue hover:underline"
+              className="text-sm font-semibold text-brand-orange hover:underline"
             >
               {mode === 'login' ? 'ليس لديك حساب؟ إنشاء حساب جديد' : 'لديك حساب بالفعل؟ تسجيل الدخول'}
             </button>
           </div>
         </div>
 
-        <p className="text-center text-white/50 text-xs mt-6">Market Studio v1.0 © 2026</p>
+        <p className="text-center text-white/50 text-xs mt-6">Pick n' Pack Studio v1.0 © 2026</p>
       </motion.div>
     </div>
   )

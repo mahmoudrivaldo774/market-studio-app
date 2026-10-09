@@ -163,7 +163,7 @@ export const AddEditProduct: React.FC = () => {
       <form onSubmit={handleSubmit} className="space-y-5">
         {/* Basic Info */}
         <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 space-y-4">
-          <h2 className="text-lg font-bold border-b pb-2 text-brand-blue">المعلومات الأساسية</h2>
+          <h2 className="text-lg font-bold border-b pb-2 text-brand-orange">المعلومات الأساسية</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">الاسم (عربي) *</label>
@@ -187,14 +187,14 @@ export const AddEditProduct: React.FC = () => {
               <label className="block text-sm font-semibold text-gray-700 mb-1">سعر العرض</label>
               <Input type="number" step="0.01" value={formData.sale_price} onChange={e => setFormData({...formData, sale_price: e.target.value})} dir="ltr" />
               {discount > 0 && (
-                <p className="text-xs text-brand-green font-bold mt-1">🏷️ خصم {discount}%</p>
+                <p className="text-xs text-brand-gold font-bold mt-1">🏷️ خصم {discount}%</p>
               )}
             </div>
           </div>
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-1">القسم</label>
             <select
-              className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 focus:ring-brand-blue outline-none touch-target"
+              className="flex h-11 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 focus:ring-brand-orange outline-none touch-target"
               value={formData.category_id}
               onChange={e => setFormData({...formData, category_id: e.target.value})}
             >
@@ -205,7 +205,7 @@ export const AddEditProduct: React.FC = () => {
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-1">الوصف التسويقي</label>
             <textarea
-              className="flex min-h-[120px] w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue outline-none resize-none"
+              className="flex min-h-[120px] w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm focus:ring-2 focus:ring-brand-orange outline-none resize-none"
               value={formData.description}
               onChange={e => setFormData({...formData, description: e.target.value})}
               placeholder="اكتب وصفاً جذاباً للمنتج ليتم نسخه ومشاركته..."
@@ -215,12 +215,12 @@ export const AddEditProduct: React.FC = () => {
 
         {/* Media Upload */}
         <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 space-y-4">
-          <h2 className="text-lg font-bold border-b pb-2 text-brand-blue">الوسائط</h2>
+          <h2 className="text-lg font-bold border-b pb-2 text-brand-orange">الوسائط</h2>
           <div className="grid md:grid-cols-2 gap-5">
             {/* Image */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">صورة المنتج (PNG مفرغ)</label>
-              <div className="border-2 border-dashed border-gray-300 rounded-xl p-4 min-h-[200px] flex flex-col items-center justify-center bg-gray-50 relative hover:border-brand-blue/50 transition-colors">
+              <div className="border-2 border-dashed border-gray-300 rounded-xl p-4 min-h-[200px] flex flex-col items-center justify-center bg-gray-50 relative hover:border-brand-orange/50 transition-colors">
                 {imagePreview || existingImage ? (
                   <div className="relative w-full flex items-center justify-center">
                     <img src={imagePreview || existingImage!} alt="Preview" className="max-h-[180px] object-contain rounded-lg" />
@@ -242,10 +242,10 @@ export const AddEditProduct: React.FC = () => {
             {/* Video */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">فيديو المنتج (MP4)</label>
-              <div className="border-2 border-dashed border-gray-300 rounded-xl p-4 min-h-[200px] flex flex-col items-center justify-center bg-gray-50 relative hover:border-brand-blue/50 transition-colors">
+              <div className="border-2 border-dashed border-gray-300 rounded-xl p-4 min-h-[200px] flex flex-col items-center justify-center bg-gray-50 relative hover:border-brand-orange/50 transition-colors">
                 {videoFile || existingVideo ? (
                   <div className="relative w-full flex flex-col items-center justify-center">
-                    <Video className="w-12 h-12 text-brand-blue mb-2" />
+                    <Video className="w-12 h-12 text-brand-orange mb-2" />
                     <p className="text-sm font-medium truncate max-w-full px-4">{videoFile ? videoFile.name : 'فيديو موجود'}</p>
                     <button type="button" onClick={() => { setVideoFile(null); setExistingVideo(null) }} className="absolute -top-2 -right-2 bg-red-500 text-white p-1 rounded-full shadow-md hover:bg-red-600">
                       <X className="w-4 h-4" />

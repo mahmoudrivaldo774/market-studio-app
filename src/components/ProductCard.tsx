@@ -51,7 +51,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         animate={{ opacity: 1, y: 0 }}
         className={cn(
           'flex flex-col sm:flex-row gap-4 p-4 bg-white rounded-2xl border transition-all',
-          isCopied ? 'opacity-70 border-brand-green/30 bg-brand-green/5' : 'border-gray-100 hover:shadow-lg'
+          isCopied ? 'opacity-70 border-brand-gold/30 bg-brand-gold/5' : 'border-gray-100 hover:shadow-lg'
         )}
       >
         <div 
@@ -77,7 +77,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         <div className="flex-1 flex flex-col min-w-0">
           <div className="flex justify-between items-start">
-            <Link to={`/product/${product.id}`} className="hover:text-brand-blue transition-colors flex-1 min-w-0">
+            <Link to={`/product/${product.id}`} className="hover:text-brand-orange transition-colors flex-1 min-w-0">
               <h3 className="font-bold text-gray-900 truncate text-base">{product.name_ar}</h3>
               {product.description && <p className="text-xs text-gray-500 truncate mt-1">{product.description}</p>}
             </Link>
@@ -87,13 +87,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
           
           <div className="flex items-center gap-2 mt-2">
-            <span className="font-black text-brand-blue text-lg">{formatPrice(product.sale_price || product.price)}</span>
+            <span className="font-black text-brand-orange text-lg">{formatPrice(product.sale_price || product.price)}</span>
             {product.sale_price && <span className="text-sm text-gray-400 line-through">{formatPrice(product.price)}</span>}
             {discount > 0 && <span className="bg-red-100 text-red-600 text-xs px-2 py-0.5 rounded-full font-bold">خصم {discount}%</span>}
           </div>
           
           <div className="mt-auto pt-4 flex flex-wrap gap-2">
-            <button onClick={() => onCopy(product)} className="flex items-center justify-center gap-1.5 bg-brand-blue text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-brand-blue/90 transition-colors touch-target flex-1 sm:flex-none">
+            <button onClick={() => onCopy(product)} className="flex items-center justify-center gap-1.5 bg-brand-orange text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-brand-orange/90 transition-colors touch-target flex-1 sm:flex-none">
               <Copy className="w-4 h-4" /> نسخ التفاصيل
             </button>
             {product.image_url && (
@@ -101,7 +101,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 <Download className="w-4 h-4" /> تحميل الصورة
               </button>
             )}
-            <button onClick={() => onShare(product)} className="flex items-center justify-center bg-brand-green/10 text-brand-green px-4 py-2 rounded-xl hover:bg-brand-green/20 transition-colors touch-target">
+            <button onClick={() => onShare(product)} className="flex items-center justify-center bg-brand-gold/10 text-brand-gold px-4 py-2 rounded-xl hover:bg-brand-gold/20 transition-colors touch-target">
               <Share2 className="w-4 h-4" />
             </button>
           </div>
@@ -118,7 +118,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       animate={{ opacity: 1, scale: 1 }}
       className={cn(
         'flex flex-col bg-white rounded-2xl border overflow-hidden transition-all group',
-        isCopied ? 'border-brand-green/30 ring-1 ring-brand-green/20 bg-brand-green/5' : 'border-gray-100 hover:shadow-xl hover:-translate-y-1'
+        isCopied ? 'border-brand-gold/30 ring-1 ring-brand-gold/20 bg-brand-gold/5' : 'border-gray-100 hover:shadow-xl hover:-translate-y-1'
       )}
     >
       <div 
@@ -150,7 +150,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         )}
         {isCopied && (
           <div className="absolute bottom-2 right-2">
-            <span className="bg-brand-green/90 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-md">
+            <span className="bg-brand-gold/90 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-md">
               <Check className="w-3 h-3" /> تم النسخ
             </span>
           </div>
@@ -159,7 +159,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
       <div className="p-3 sm:p-4 flex flex-col flex-1 z-10 bg-inherit">
         <div className="flex justify-between items-start mb-1 gap-2">
-          <Link to={`/product/${product.id}`} className="flex-1 min-w-0 group-hover:text-brand-blue transition-colors">
+          <Link to={`/product/${product.id}`} className="flex-1 min-w-0 group-hover:text-brand-orange transition-colors">
             <h3 className="font-bold text-gray-900 text-sm truncate leading-tight">{product.name_ar}</h3>
           </Link>
           <button onClick={() => onToggleFavorite(product)} className="p-1 -mt-1 -mr-1">
@@ -168,7 +168,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </div>
 
         <div className="flex items-center gap-1.5 mb-3">
-          <span className="text-base font-black text-brand-blue">{formatPrice(product.sale_price || product.price)}</span>
+          <span className="text-base font-black text-brand-orange">{formatPrice(product.sale_price || product.price)}</span>
           {product.sale_price && <span className="text-[10px] text-gray-400 line-through">{formatPrice(product.price)}</span>}
         </div>
 
@@ -177,7 +177,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <div className="flex gap-2">
             <button
               onClick={() => onCopy(product)}
-              className="flex-1 flex items-center justify-center gap-1.5 bg-brand-blue text-white py-2.5 rounded-xl text-xs font-bold hover:bg-brand-blue/90 transition-colors touch-target shadow-sm active:scale-95"
+              className="flex-1 flex items-center justify-center gap-1.5 bg-brand-orange text-white py-2.5 rounded-xl text-xs font-bold hover:bg-brand-orange/90 transition-colors touch-target shadow-sm active:scale-95"
             >
               <Copy className="w-4 h-4" /> نسخ
             </button>
@@ -192,7 +192,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             )}
             <button
               onClick={() => onShare(product)}
-              className="w-11 flex items-center justify-center bg-brand-green/10 text-brand-green rounded-xl hover:bg-brand-green/20 transition-colors touch-target active:scale-95"
+              className="w-11 flex items-center justify-center bg-brand-gold/10 text-brand-gold rounded-xl hover:bg-brand-gold/20 transition-colors touch-target active:scale-95"
               title="مشاركة"
             >
               <Share2 className="w-4 h-4" />

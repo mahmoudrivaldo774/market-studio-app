@@ -100,7 +100,7 @@ export const Settings: React.FC = () => {
   if (loading) {
     return (
       <div className="flex h-full items-center justify-center">
-        <LoadingSpinner className="w-12 h-12 text-brand-blue" />
+        <LoadingSpinner className="w-12 h-12 text-brand-orange" />
       </div>
     );
   }
@@ -113,7 +113,7 @@ export const Settings: React.FC = () => {
     >
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
-          <Palette className="w-8 h-8 text-brand-blue" />
+          <Palette className="w-8 h-8 text-brand-orange" />
           إعدادات العلامة التجارية
         </h1>
         <Button onClick={handleSave} disabled={saving} className="gap-2">

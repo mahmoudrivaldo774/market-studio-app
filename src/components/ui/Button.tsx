@@ -10,9 +10,9 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'primary', size = 'md', isLoading, children, disabled, ...props }, ref) => {
     const variants: Record<string, string> = {
-      primary: 'bg-brand-blue text-white hover:bg-brand-blue/90 shadow-sm',
-      secondary: 'bg-brand-green text-white hover:bg-brand-green/90 shadow-sm',
-      outline: 'border-2 border-brand-blue text-brand-blue hover:bg-brand-blue/5',
+      primary: 'bg-brand-orange text-white hover:bg-brand-orange/90 shadow-sm',
+      secondary: 'bg-brand-gold text-white hover:bg-brand-gold/90 shadow-sm',
+      outline: 'border-2 border-brand-orange text-brand-orange hover:bg-brand-orange/5',
       ghost: 'text-gray-600 hover:bg-gray-100',
       danger: 'bg-red-500 text-white hover:bg-red-600 shadow-sm'
     }
@@ -28,7 +28,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          'inline-flex items-center justify-center font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.97]',
+          'inline-flex items-center justify-center font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.97]',
           variants[variant],
           sizes[size],
           className
