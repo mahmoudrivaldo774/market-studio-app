@@ -53,7 +53,7 @@ export const AddEditProduct: React.FC = () => {
     if (data && !error) {
       setFormData({
         name_ar: data.name_ar, name_en: data.name_en || '', barcode: data.barcode || '',
-        price: data.price.toString(), sale_price: data.sale_price?.toString() || '',
+        price: data.price?.toString() || '', sale_price: data.sale_price?.toString() || '',
         category_id: data.category_id || '', description: data.description || '',
       })
       setExistingImage(data.image_url)
@@ -80,12 +80,12 @@ export const AddEditProduct: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const price = Number(formData.price)
+    const price = formData.price ? Number(formData.price) : null
     const salePrice = formData.sale_price ? Number(formData.sale_price) : null
-    if (!formData.name_ar.trim() || !Number.isFinite(price) || price <= 0) {
+    if (!formData.name_ar.trim() || (price !== null && (!Number.isFinite(price) || price < 0))) {
       toast.error('الرجاء إدخال الاسم والسعر'); return
     }
-    if (salePrice !== null && (!Number.isFinite(salePrice) || salePrice <= 0 || salePrice >= price)) {
+    if (salePrice !== null && (!Number.isFinite(salePrice) || salePrice <= 0 || (price !== null && salePrice >= price))) {
       toast.error('سعر العرض يجب أن يكون أكبر من صفر وأقل من السعر الأساسي'); return
     }
     setIsLoading(true)
@@ -166,7 +166,7 @@ export const AddEditProduct: React.FC = () => {
           <h2 className="text-lg font-bold border-b pb-2 text-brand-orange">المعلومات الأساسية</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-1">الاسم (عربي) *</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-1">الاسم (عربي) </label>
               <Input required value={formData.name_ar} onChange={e => setFormData({...formData, name_ar: e.target.value})} />
             </div>
             <div>
@@ -180,8 +180,8 @@ export const AddEditProduct: React.FC = () => {
               <Input value={formData.barcode} onChange={e => setFormData({...formData, barcode: e.target.value})} dir="ltr" />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-1">السعر الأساسي *</label>
-              <Input type="number" step="0.01" required value={formData.price} onChange={e => setFormData({...formData, price: e.target.value})} dir="ltr" />
+              <label className="block text-sm font-semibold text-gray-700 mb-1">السعر الأساسي </label>
+              <Input type="number" step="0.01" value={formData.price} onChange={e => setFormData({...formData, price: e.target.value})} dir="ltr" />
             </div>
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">سعر العرض</label>

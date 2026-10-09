@@ -44,7 +44,7 @@ export const ProductDetails: React.FC = () => {
 
   const handleCopy = async () => {
     if (!product) return
-    const text = [product.name_ar, product.description || '', `السعر: ${product.sale_price || product.price} جنيه`].filter(Boolean).join('\n')
+    const text = [product.name_ar, product.description || '', `?????: ${formatPrice(product.sale_price || product.price)}`].filter(Boolean).join('\n')
     try {
       const success = await copyToClipboard(text)
       if (!success) throw new Error('Copy failed')
@@ -133,7 +133,7 @@ export const ProductDetails: React.FC = () => {
   if (isLoading) return <LoadingSpinner />
   if (!product) return null
 
-  const discount = product.sale_price ? calcDiscount(product.price, product.sale_price) : 0
+  const discount = product.sale_price ? calcDiscount(product.price || 0, product.sale_price) : 0
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-4xl mx-auto space-y-6 pb-20">
@@ -204,7 +204,7 @@ export const ProductDetails: React.FC = () => {
               {product.sale_price && (
                 <div className="flex flex-col">
                   <span className="text-lg text-gray-400 line-through">{formatPrice(product.price)}</span>
-                  <span className="text-sm text-red-500 font-bold">توفير {formatPrice(product.price - product.sale_price)}</span>
+                  <span className="text-sm text-red-500 font-bold">توفير {formatPrice((product.price || 0) - product.sale_price)}</span>
                 </div>
               )}
             </div>

@@ -20,7 +20,7 @@ export interface Product {
   name_ar: string
   name_en?: string
   barcode?: string | null
-  price: number
+  price?: number | null
   sale_price?: number | null
   sale_start_date?: string | null
   sale_end_date?: string | null

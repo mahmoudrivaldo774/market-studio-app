@@ -34,8 +34,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function formatPrice(price: number | string): string {
-  return `${Number(price).toFixed(2)} جنيه`
+export function formatPrice(price: number | string | null | undefined): string {
+  if (price === null || price === undefined || price === '') return 'السعر غير محدد'; return `${Number(price).toFixed(2)} جنيه`
 }
 
 export function calcDiscount(original: number, sale: number): number {

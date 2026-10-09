@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS public.products (
   name_ar text NOT NULL,
   name_en text,
   barcode text UNIQUE,
-  price numeric NOT NULL,
+  price numeric,
   sale_price numeric,
   sale_start_date date,
   sale_end_date date,

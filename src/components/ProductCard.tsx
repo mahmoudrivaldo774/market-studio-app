@@ -20,7 +20,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   product, viewMode, onCopy, onShare, onToggleFavorite, onImageClick
 }) => {
   const isCopied = !!product.last_copied_at
-  const discount = product.sale_price ? calcDiscount(product.price, product.sale_price) : 0
+  const discount = product.sale_price ? calcDiscount(product.price || 0, product.sale_price) : 0
 
   const handleDownload = async (e: React.MouseEvent) => {
     e.preventDefault()
